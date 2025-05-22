@@ -96,4 +96,4 @@ app.post("/summarize", async (req, res) => {
   }
 });
 
-app.listen(8000, () => console.log("Server is running on port 3000"));
+app.listen(12000, () => console.log("Server is running on port 12000"));
