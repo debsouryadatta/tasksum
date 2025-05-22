@@ -20,8 +20,17 @@ RUN pnpm install --frozen-lockfile
 # Copy application code
 COPY . .
 
+# TypeScript compile
+RUN tsc -b
+
+# Prisma generate
+RUN npx prisma generate
+
+# Copy the generated Prisma client
+COPY src/lib/generated dist/lib/generated
+
 # Expose the port your app runs on
 EXPOSE 12000
 
 # Start command
-CMD ["sh", "-c", "pnpm build && pnpm start"]
+CMD ["node", "dist/index.js"]
