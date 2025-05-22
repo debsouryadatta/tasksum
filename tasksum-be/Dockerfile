@@ -1,4 +1,4 @@
-FROM node:lts-alpine AS builder
+FROM node:lts-alpine
 
 # Set up pnpm
 ENV PNPM_HOME="/pnpm"
@@ -25,9 +25,6 @@ RUN tsc -b
 
 # Prisma generate
 RUN npx prisma generate
-
-# Copy the generated Prisma client
-RUN cp -r src/lib/generated dist/lib/generated
 
 # Expose the port your app runs on
 EXPOSE 12000
