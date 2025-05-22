@@ -20,10 +20,6 @@ RUN pnpm install --frozen-lockfile
 # Copy application code
 COPY . .
 
-# Creating the directories
-RUN mkdir -p src/lib/generated
-RUN mkdir -p dist/lib/generated
-
 # TypeScript compile
 RUN tsc -b
 
@@ -31,7 +27,7 @@ RUN tsc -b
 RUN npx prisma generate
 
 # Copy the generated Prisma client
-COPY src/lib/generated dist/lib/generated
+RUN cp -r src/lib/generated dist/lib/generated
 
 # Expose the port your app runs on
 EXPOSE 12000
