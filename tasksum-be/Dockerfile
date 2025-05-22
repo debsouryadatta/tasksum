@@ -5,6 +5,9 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
+# Install TypeScript globally
+RUN npm install -g typescript
+
 # Set working directory
 WORKDIR /app
 
