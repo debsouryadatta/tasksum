@@ -20,6 +20,10 @@ RUN pnpm install --frozen-lockfile
 # Copy application code
 COPY . .
 
+# Creating the directories
+RUN mkdir -p src/lib/generated
+RUN mkdir -p dist/lib/generated
+
 # TypeScript compile
 RUN tsc -b
 
