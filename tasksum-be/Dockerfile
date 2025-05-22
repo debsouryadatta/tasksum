@@ -20,11 +20,11 @@ RUN pnpm install --frozen-lockfile
 # Copy application code
 COPY . .
 
-# TypeScript compile
-RUN tsc -b
-
 # Prisma generate
 RUN npx prisma generate
+
+# TypeScript compile
+RUN tsc -b
 
 # Expose the port your app runs on
 EXPOSE 12000
