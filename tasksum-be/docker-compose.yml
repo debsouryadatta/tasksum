@@ -1,0 +1,9 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  tasksum-be:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "12000:12000"
